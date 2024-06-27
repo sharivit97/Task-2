@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript task 2</title>
+    <script>
+      function Sort() {
+        var x = document.getElementById("x").value;
+        document.getElementById("result").textContent = x
+          .split("")
+          .sort()
+          .join("");
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #6a11cb , #f20707);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      .transparent-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 20px;
+        width: 350px;
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 20px;
+        color: #444;
+        font-size: 24px;
+      }
+      input[type="text"] {
+        padding: 12px;
+        width: calc(100% - 24px);
+        margin-bottom: 20px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button {
+        background-color: #f20707;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+      button:hover {
+        background-color: #6a11cb;
+      }
+      #result {
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="transparent-box">
+      <h2>String in Alphabetical Order</h2>
+      Enter String : <input type="text" id="x" /><br /><br />
+      <button onclick="Sort()">Submit</button><br /><br />
+      Result : <span id="result"></span>
+    </div>
+  </body>
+</html>

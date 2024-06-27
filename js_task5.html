@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span class="error" id="nameError">* This field is required</span>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span class="error" id="emailError">* This field is required</span>
+            <br><br>
+
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website">
+            <span class="error" id="websiteError">* This field is required</span>
+            <br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <span class="error" id="messageError">* This field is required</span>
+            <br><br>
+
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const website = document.getElementById('website').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const websiteError = document.getElementById('websiteError');
+            const messageError = document.getElementById('messageError');
+
+            nameError.style.display = name ? 'none' : 'inline';
+            emailError.style.display = email ? 'none' : 'inline';
+            websiteError.style.display = website ? 'none' : 'inline';
+            messageError.style.display = message ? 'none' : 'inline';
+
+            if (!name || !email || !website || !message) {
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+                // Here you can add code to actually submit the form
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript task 4</title>
+    <script>
+      function showdate() {
+        const t = new Date();
+        d = t.toDateString();
+        arr = d.split(" ");
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        dateinformat = arr[2] + "/" + months[t.getMonth()] + "/" + arr[3];
+        document.getElementById("date").innerHTML = dateinformat;
+      }
+      function showtime() {
+        const t = new Date();
+        document.getElementById("time").innerHTML = t;
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #6a11cb , #f20707);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      .transparent-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 15px;
+        width: 350px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      button {
+        background-color: #ff7e5f;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 10px 0;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #ff6b4f;
+      }
+      p {
+        font-size: 18px;
+        color: #444;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="transparent-box">
+      <button onclick="showdate()">Show Date</button><br />
+      <p id="date"></p>
+      <br />
+      <button onclick="showtime()">Show Time</button><br />
+      <p id="time"></p>
+    </div>
+  </body>
+</html>

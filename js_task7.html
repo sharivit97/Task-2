@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .train-track {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: url('https://via.placeholder.com/800x200.png?text=Train+Track') no-repeat center center;
+            background-size: cover;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .train {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 200px;
+            background: url('train.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="train-track">
+        <div class="train" id="train"></div>
+    </div>
+    <div class="buttons">
+        <button onclick="startAnimation()">Start</button>
+        <button onclick="stopAnimation()">Stop</button>
+    </div>
+
+    <script>
+        let train = document.getElementById('train');
+        let animationId;
+        let position = 0;
+
+        function startAnimation() {
+            if (animationId) return; // Prevent multiple intervals
+            animationId = setInterval(() => {
+                position += 5;
+                if (position > window.innerWidth) {
+                    position = -100; // Reset position to create a looping effect
+                }
+                train.style.left = position + 'px';
+            }, 50);
+        }
+
+        function stopAnimation() {
+            clearInterval(animationId);
+            animationId = null;
+        }
+    </script>
+</body>
+</html>
